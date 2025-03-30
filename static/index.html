@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THE SIDECAFE - Spin the Wheel</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Decorative Background Elements -->
+    <div class="decorative-bg">
+      <div class="decorative-icon pizza">
+        <i data-lucide="pizza"></i>
+      </div>
+      <div class="decorative-icon coffee">
+        <i data-lucide="coffee"></i>
+      </div>
+      <div class="decorative-icon cookie">
+        <i data-lucide="cookie"></i>
+      </div>
+      <div class="decorative-icon croissant">
+        <i data-lucide="croissant"></i>
+      </div>
+      <div class="decorative-icon ice-cream">
+        <i data-lucide="ice-cream"></i>
+      </div>
+      <div class="decorative-icon cake">
+        <i data-lucide="cake"></i>
+      </div>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+      <div class="header-container">
+        <div class="logo-container">
+          <i data-lucide="chef-hat"></i>
+        </div>
+        <div class="header-text">
+          <h1>
+            THE SIDECAFE
+            <i data-lucide="utensils-crossed"></i>
+          </h1>
+          <p>THE BEST BAKERY</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <div class="main-content">
+        <!-- Timeline -->
+        <div class="timeline">
+          <div class="timeline-step">
+            <div class="circle step1">1</div>
+            <p>Spin the wheel</p>
+          </div>
+          <div class="timeline-line"></div>
+          <div class="timeline-step">
+            <div class="circle step2">2</div>
+            <p>Fill the Form</p>
+          </div>
+          <div class="timeline-line"></div>
+          <div class="timeline-step">
+            <div class="circle step3">3</div>
+            <p>Get the Prizes</p>
+          </div>
+        </div>
+
+        <div class="center-text">
+          <h2>Spin the Wheel</h2>
+          <p>Win exciting Coupons for Delicious Treats 🥰</p>
+        </div>
+
+        <!-- Spins Counter -->
+        <div class="spin-counter">
+          <span>Daily Spins: 3</span>
+          <i data-lucide="info"></i>
+        </div>
+        <div class="container">
+          <div class="wheel-container">
+            <div class="wheel" id="wheel">
+              <!-- Text Labels -->
+              <div class="segment-text" style="--angle: 0;">10rs</div>
+              <div class="segment-text" style="--angle: 60;">20rs</div>
+              <div class="segment-text" style="--angle: 120;">30rs</div>
+              <div class="segment-text" style="--angle: 180;">40rs</div>
+              <div class="segment-text" style="--angle: 240;">50rs</div>
+              <div class="segment-text" style="--angle: 300;">60rs</div>
+            </div>
+            <!-- Refined Arrow -->
+            <svg class="arrow" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#ff6f61" />
+                  <stop offset="100%" stop-color="#e8564d" />
+                </linearGradient>
+              </defs>
+              <polygon points="50,70 70,10 30,10" fill="url(#arrowGradient)" />
+              <circle cx="50" cy="80" r="5" fill="#fff" />
+            </svg>
+            <button id="spinButton">Spin</button>
+          </div>
+        </div>
+
+        <!-- Wheel Container with PNG Spinner -->
+      
+        
+        
+
+        <!-- Spin Button -->
+        <button class="spin-button">SPIN NOW</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Lucide Icons Script -->
+  <script src="https://unpkg.com/lucide@latest/dist/lucide.min.js"></script>
+  <script>
+    // script.js
+document.getElementById('spinButton').addEventListener('click', spinWheel);
+
+const modal = document.getElementById('modal');
+const closeButton = document.querySelector('.close-button');
+const claimButton = document.getElementById('claimButton');
+const spinAgainButton = document.getElementById('spinAgainButton');
+
+// Close the modal when the close button is clicked
+closeButton.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+// Close the modal when clicking outside the modal content
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
+// Close the modal when the "Claim Reward" button is clicked
+claimButton.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+// Allow spinning again when the "Spin Again" button is clicked
+spinAgainButton.addEventListener('click', () => {
+  modal.style.display = 'none';
+  spinWheel();
+});
+
+function spinWheel() {
+  const wheel = document.getElementById('wheel');
+  const randomDegree = Math.floor(Math.random() * 360) + 1080; // 1080 ensures at least 3 full spins
+  const finalDegree = randomDegree % 360;
+
+  // Apply rotation to the wheel
+  wheel.style.transition = 'transform 5s ease-out';
+  wheel.style.transform = `rotate(${randomDegree}deg)`;
+
+  // Determine the winning segment
+  const segments = [
+    { startAngle: 0, endAngle: 60, prize: '10rs' },   // Segment 1
+    { startAngle: 60, endAngle: 120, prize: '20rs' }, // Segment 2
+    { startAngle: 120, endAngle: 180, prize: '30rs' }, // Segment 3
+    { startAngle: 180, endAngle: 240, prize: '40rs' }, // Segment 4
+    { startAngle: 240, endAngle: 300, prize: '50rs' }, // Segment 5
+    { startAngle: 300, endAngle: 360, prize: '60rs' }  // Segment 6
+  ];
+
+  // Adjust the final degree to match the arrow pointing downward
+  let adjustedDegree = finalDegree + 90; // Offset by 90 degrees to align with the arrow
+  if (adjustedDegree >= 360) {
+    adjustedDegree -= 360; // Normalize to 0-359 range
+  }
+
+  // Calculate the winning segment based on the adjusted degree
+  let winningSegment = null;
+  for (let i = 0; i < segments.length; i++) {
+    if (adjustedDegree >= segments[i].startAngle && adjustedDegree < segments[i].endAngle) {
+      winningSegment = segments[i];
+      break;
+    }
+  }
+
+  // If the adjusted degree is exactly 360, it should point to the last segment
+  if (adjustedDegree === 0) {
+    winningSegment = segments[segments.length - 1];
+  }
+
+  // Display the winning prize in the modal after the wheel stops
+  setTimeout(() => {
+    if (winningSegment) {
+      document.getElementById('prize').textContent = winningSegment.prize;
+      modal.style.display = 'block';
+    }
+  }, 5000); // 5000ms matches the CSS transition duration
+
+  // Reset the wheel after spinning
+  setTimeout(() => {
+    wheel.style.transition = 'none';
+    wheel.style.transform = `rotate(${finalDegree}deg)`;
+  }, 5000); // 5000ms matches the CSS transition duration
+}
+  </script>
+</body>
+</html>

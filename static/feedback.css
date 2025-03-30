@@ -1,0 +1,544 @@
+/* style.css */
+
+/* --- Font Embedding for "Heading Now 61-68" - REMOVED --- */
+/* Using Poppins Italic instead - Google Font Link in HTML */
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image:
+        url('RestroPub (1).png'), /* Your pattern image - LAYER 1 (top) */
+        linear-gradient(135deg, #004AAD, #CB6CE6);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Full Body Background Food Icons - No change */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    opacity: 0.2;
+    background-image: url('food-icons-background.png');
+    background-repeat: repeat;
+    pointer-events: none;
+}
+
+
+.form-container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    padding: 45px 45px;
+    width: 92%;
+    max-width: 680px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Moving Emojis - No change */
+.moving-emojis-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.6;
+    z-index: -1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    animation: emojiRainVertical 20s linear infinite;
+}
+
+.moving-emojis-background::before,
+.moving-emojis-background::after,
+.moving-emojis-background::nth-child(3),
+.moving-emojis-background::nth-child(4) {
+    font-size: 2em;
+    margin: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
+    animation-delay: 0s;
+}
+
+.moving-emojis-background::before { content: '🍉'; animation-delay: -2s; }
+.moving-emojis-background::after { content: '🍇'; animation-delay: -5s; }
+.moving-emojis-background::nth-child(3) { content: '🍍'; animation-delay: -8s; }
+.moving-emojis-background::nth-child(4) { content: '🍅'; animation-delay: -12s; }
+
+@keyframes emojiRainVertical {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(200%); }
+}
+
+
+/* Restaurant Name Styling - RESTRO PUB - Poppins Italic and Exact Gradient - No change */
+.restaurant-name {
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 4.9em;
+    text-align: center;
+    margin-bottom: 8px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.18);
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #3328ff, #f837ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+
+/* Incentive Text Styling - "FILL THE FORM..." - Poppins Italic and Exact Color - No change */
+.incentive-text {
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    font-size: 1.2em;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 600;
+    text-shadow: none;
+    letter-spacing: 0.5px;
+    animation: none;
+    opacity: 1;
+}
+
+
+/* Background Emojis Styling - No change - Full page background emojis */
+.background-emojis {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.75;
+    z-index: -2;
+    display: flex;
+    animation: foodFlowHorizontal 30s linear infinite;
+}
+
+.background-emojis::before,
+.background-emojis::after,
+.background-emojis::nth-child(3),
+.background-emojis::nth-child(4),
+.background-emojis::nth-child(5),
+.background-emojis::nth-child(6),
+.background-emojis::nth-child(7),
+.background-emojis::nth-child(8) {
+    content: '🍕';
+    font-size: 2.5em;
+    opacity: 0.6;
+    margin: 20px 30px;
+    animation: none;
+}
+
+.background-emojis::before { content: '🍕'; }
+.background-emojis::after { content: '☕'; }
+.background-emojis::nth-child(3) { content: '🍔'; }
+.background-emojis::nth-child(4) { content: '🍰'; }
+.background-emojis::nth-child(5) { content: '🍟'; }
+.background-emojis::nth-child(6) { content: '🥗'; }
+.background-emojis::nth-child(7) { content: '🍣'; }
+.background-emojis::nth-child(8) { content: '🍝'; }
+
+
+@keyframes foodFlowHorizontal {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+
+/* Progress Bar Styling - UPDATED to match working code */
+.progress-bar {
+    background-color: #ddd; /* Light grey background */
+    border-radius: 30px; /* Rounded ends */
+    height: 8px; /* Thinner progress bar */
+    margin-bottom: 35px; /* Increased bottom margin */
+    overflow: visible; /* Make dot visible */
+    box-shadow: inset 0 1px 6px rgba(0,0,0,0.2); /* Subtle inner shadow */
+    position: relative; /* For dot positioning */
+    z-index: 1;
+    width: 85%; /* Slightly narrower progress bar width */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.progress {
+    width: 0%; /* Initial width 0 */
+    height: 100%; /* Full height of progress bar track */
+    background: linear-gradient(to right, #aed581, #689f38); /* Green gradient */
+    border-radius: 30px; /* Rounded corners for fill */
+    transition: width 0.7s ease-in-out; /* Smooth width transition */
+    background-size: 200% 100%; /* For animation effect */
+    animation: flowProgressFill 3s linear infinite; /* Gradient animation */
+}
+
+@keyframes flowProgressFill {
+    0% { background-position: 200% 0; }
+    100% { background-position: 0 0; }
+}
+
+
+/* Dot Indicator Styling - UPDATED to match working code */
+.progress-bar::before {
+    content: ''; /* Required for pseudo-element */
+    position: absolute;
+    left: calc(var(--progress-percentage, 0%) - 6px); /* Position using CSS variable - Adjusted offset to -6px */
+    top: 50%; /* Vertically center */
+    transform: translateY(-50%); /* Fine-tune vertical centering */
+    width: 12px; /* Smaller dot width */
+    height: 12px; /* Smaller dot height */
+    background-color: #ff9800; /* Orange dot color */
+    border-radius: 50%; /* Make it round */
+    border: 2px solid white; /* White border */
+    z-index: 2; /* Ensure dot is on top of progress bar */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3); /* Subtle shadow */
+}
+
+
+/* Question Background Icons Styling - No change */
+.question-background-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.4;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    pointer-events: none;
+}
+
+.question-background-icons::before,
+.question-background-icons::after,
+.question-background-icons::nth-child(3) {
+    content: '🍎';
+    font-size: 4em;
+    color: #ffcdd2;
+    opacity: 0.5;
+}
+.question-background-icons::before { content: '🍎'; }
+.question-background-icons::after { content: '🍊'; }
+.question-background-icons::nth-child(3) { content: '🍌'; }
+
+
+
+/* Question Container Styling - Image Card Style - No Color Changes Needed - No change */
+.question-container {
+    display: none;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 35px 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.question-container.active {
+    display: block;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Icon, h1, input, button Styling - Centered with Emoji Icons - No change */
+.question-content {
+    text-align: center;
+}
+
+.icon {
+    display: inline-block;
+    margin: 0 10px 0 0;
+    width: auto;
+    height: auto;
+    font-size: 2.2em;
+    line-height: 1;
+    vertical-align: middle;
+    filter: none;
+    transition: transform 0.3s ease;
+    float: none;
+    margin-right: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+.icon:hover {
+    transform: scale(1.2);
+}
+
+
+h1 {
+    color: #333333;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    text-shadow: none;
+    text-align: center;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+input[type="email"] {
+    padding: 14px 22px;
+    border-radius: 10px;
+    border: 1.5px solid #CCCCCC;
+    margin-bottom: 30px;
+    width: calc(100% - 44px);
+    box-sizing: border-box;
+    font-size: 17px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+input[type="text"]:hover,
+input[type="date"]:hover,
+input[type="tel"]:hover,
+input[type="email"]:hover {
+    border-color: #8E44AD;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+    outline: none;
+}
+
+
+button {
+    background-color: #8E44AD;
+    color: white;
+    border: none;
+    padding: 15px 32px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    margin-top: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(142, 68, 173, 0.6) 0%, rgba(142, 68, 173, 0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+button:hover::before {
+    opacity: 1;
+    animation: buttonGlow 1.7s infinite linear;
+}
+
+@keyframes buttonGlow {
+    0% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.2); opacity: 0.3; }
+    100% { transform: scale(1); opacity: 0.9; }
+}
+
+
+button:hover {
+    background-color: #7B3894;
+    transform: scale(1.03);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+
+.next-button {
+    margin-top: 15px;
+}
+
+.submit-button {
+    background-color: #689f38;
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button:hover {
+    background-color: #558b2f;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Confirmation Container Styling - No change */
+.confirmation-container {
+    display: none;
+    text-align: center;
+    padding: 40px 30px;
+    background-color: #f0f8ff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    animation: fadeInConfirmation 0.6s ease-out forwards;
+}
+
+@keyframes fadeInConfirmation {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.confirmation-content h1 {
+    color: #4a148c;
+    font-size: 2.8em;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-content p {
+    color: #555;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.coupon-code {
+    background-color: #e0e7ff;
+    color: #2e7d32;
+    font-family: monospace;
+    font-size: 1.4em;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+
+/* --- Mobile Optimization -  ENHANCED for Padding and Font Sizes --- */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 20px; /* Keep existing padding */
+        padding-left: 20px; /* ADDED: Left padding for mobile */
+        padding-right: 20px; /* ADDED: Right padding for mobile */
+        width: auto; /* Changed from 96% to auto for padding to take effect */
+        margin-left: 20px; /* ADDED: Left margin for mobile if needed */
+        margin-right: 20px; /* ADDED: Right margin for mobile if needed */
+        border-radius: 13px;
+        max-width: 100%; /* Ensure it doesn't exceed screen width */
+        box-sizing: border-box; /*  Important: Include padding/margin in width calculation */
+    }
+
+    .restaurant-name {
+        font-size: 3.2em; /* Adjusted: Smaller restaurant name on mobile */
+        margin-bottom: 20px;
+        line-height: 50px; /* Adjusted: Smaller bottom margin */
+    }
+
+    .incentive-text {
+        margin-top: 5px;
+        font-size: 0.97em; /* Adjusted: Slightly smaller incentive text */
+        margin-bottom: 25px; /* Adjusted: Smaller bottom margin */
+    }
+
+    .progress-bar {
+        margin-bottom: 25px; /* Adjusted: Smaller bottom margin */
+    }
+
+    .icon {
+        font-size: 1.6em; /* Adjusted: Smaller emoji icons on mobile */
+        margin-right: 8px; /* Adjusted: Smaller emoji icon spacing */
+        margin-bottom: 15px; /* Adjusted: Smaller bottom margin */
+        margin-right: auto;
+        margin-left: auto;
+        float: none;
+    }
+
+    h1 {
+        font-size: 1.4em; /* Adjusted: Smaller question headings on mobile */
+        margin-bottom: 15px; /* Adjusted: Smaller bottom margin */
+        margin-top: 6px; /* Adjusted: Smaller top margin */
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="tel"],
+    input[type="email"] {
+        padding: 10px 18px; /* Adjusted: Smaller input padding on mobile */
+        margin-bottom: 18px; /* Adjusted: Smaller bottom margin */
+        border-radius: 9px; /* Adjusted: Slightly smaller input border-radius */
+        width: calc(100% - 36px); /* Adjusted: Input width to account for padding change */
+        font-size: 16px; /* Adjusted: Slightly smaller input font size */
+    }
+
+    button {
+        padding: 12px 24px; /* Adjusted: Smaller button padding on mobile */
+        border-radius: 12px; /* Adjusted: Slightly smaller button border-radius */
+        font-size: 18px; /* Adjusted: Slightly smaller button font size */
+        margin-top: 10px; /* Adjusted: Smaller top margin */
+    }
+
+    .next-button {
+        margin-top: 10px; /* Adjusted: Smaller top margin */
+    }
+
+    .confirmation-container {
+        padding: 25px 15px; /* Adjusted: Smaller confirmation container padding on mobile */
+        border-radius: 12px; /* Adjusted: Slightly smaller confirmation border-radius */
+        margin-top: 15px; /* Adjusted: Smaller top margin */
+    }
+
+    .confirmation-content h1 {
+        font-size: 2.2em; /* Adjusted: Smaller "Thank You" heading on mobile */
+        margin-bottom: 12px; /* Adjusted: Smaller bottom margin */
+    }
+
+    .confirmation-content p {
+        font-size: 0.95em; /* Adjusted: Slightly smaller confirmation message text */
+        margin-bottom: 20px; /* Adjusted: Smaller bottom margin */
+    }
+
+    .coupon-code {
+        font-size: 1.1em; /* Adjusted: Smaller coupon code font on mobile */
+        padding: 10px 16px; /* Adjusted: Smaller coupon code padding on mobile */
+        border-radius: 8px; /* Adjusted: Slightly smaller coupon code border-radius */
+        margin-bottom: 15px; /* Adjusted: Smaller bottom margin */
+    }
+
+    /* Adjust Moving Emojis Background for Mobile - Optional */
+    .moving-emojis-background::before,
+    .moving-emojis-background::after,
+    .moving-emojis-background::nth-child(3),
+    .moving-emojis-background::nth-child(4) {
+        font-size: 1.6em; /* Slightly smaller moving emojis on mobile */
+        margin: 10px; /* Slightly smaller spacing */
+    }
+} 

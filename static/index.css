@@ -1,0 +1,555 @@
+/* Reset some basic elements */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html, body {
+    height: 100%;
+    font-family: sans-serif;
+  }
+  
+  /* Main app container */
+  .app-container {
+    min-height: 100vh;
+    background-color: #7c3aed; /* violet-500 */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Decorative Background Elements */
+  .decorative-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  
+  /* Common style for all decorative icons */
+  .decorative-icon {
+    position: absolute;
+    color: rgba(167, 139, 250, 0.2);
+  }
+  
+  /* Pizza icon */
+  .decorative-icon.pizza {
+    top: 40px;
+    right: 40px;
+    width: 128px;
+    height: 128px;
+    animation: float 6s ease-in-out infinite, glow 4s ease-in-out infinite;
+  }
+  
+  /* Coffee icon */
+  .decorative-icon.coffee {
+    bottom: 80px;
+    left: 40px;
+    width: 112px;
+    height: 112px;
+    animation: float-reverse 7s ease-in-out infinite 2s, glow 4s ease-in-out infinite 2s;
+  }
+  
+  /* Cookie icon */
+  .decorative-icon.cookie {
+    top: 160px;
+    left: 20px;
+    width: 96px;
+    height: 96px;
+    animation: float 6s ease-in-out infinite 3s, glow 4s ease-in-out infinite 3s;
+  }
+  
+  /* Croissant icon */
+  .decorative-icon.croissant {
+    top: 33%;
+    right: 25%;
+    width: 80px;
+    height: 80px;
+    animation: float-reverse 7s ease-in-out infinite 1s, glow 4s ease-in-out infinite 1s;
+  }
+  
+  /* Ice Cream icon */
+  .decorative-icon.ice-cream {
+    bottom: 25%;
+    right: 40px;
+    width: 96px;
+    height: 96px;
+    animation: float 6s ease-in-out infinite 4s, glow 4s ease-in-out infinite 4s;
+  }
+  
+  /* Cake icon */
+  .decorative-icon.cake {
+    top: 50%;
+    left: 25%;
+    width: 112px;
+    height: 112px;
+    animation: float-reverse 7s ease-in-out infinite 2s, glow 4s ease-in-out infinite 2s;
+  }
+  
+  /* Ensure icons (from Lucide) fill their container */
+  .decorative-icon i {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Header Section */
+  header {
+    padding: 16px;
+    position: relative;
+  }
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-container {
+    background-color: #FACC15; /* yellow-400 */
+    border-radius: 50%;
+    padding: 8px;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+  }
+  .logo-container:hover {
+    transform: scale(1.05);
+  }
+  .logo-container i {
+    width: 32px;
+    height: 32px;
+    color: #ffffff;
+  }
+  .header-text h1 {
+    color: #ffffff;
+    font-size: 34px;
+    font-weight: bold;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+  }
+  .header-text h1 i {
+    width: 24px;
+    height: 24px;
+    color: #FACC15;
+    animation: glow 4s ease-in-out infinite;
+  }
+  .header-text p {
+    color: #ffffff;
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  /* Main Content */
+  main {
+    max-width: 1200px;
+    margin: 16px auto;
+    padding: 0 16px;
+  }
+  .main-content {
+    background-color: rgba(255,230,213,0.95); /* #FFE6D5 with 95% opacity */
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    min-height: calc(100vh - 96px); /* 6rem = 96px */
+    padding: 24px;
+    position: relative;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    backdrop-filter: blur(4px);
+  }
+  
+  /* Timeline */
+  .timeline {
+    max-width: 768px;
+    margin: 0 auto 48px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+  }
+  .timeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .timeline-step .circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    margin: 0 auto;
+    color: #ffffff;
+  }
+  .timeline-step .circle:hover {
+    transform: scale(1.1);
+  }
+  .timeline-step p {
+    font-size: 14px;
+    margin-top: 8px;
+    font-weight: 500;
+  }
+  .timeline-step:first-child .circle {
+    background-color: #6d28d9; /* violet-600 */
+  }
+  .timeline-step:first-child p {
+    color: #6d28d9;
+  }
+  .timeline-step:not(:first-child) .circle {
+    background-color: #a78bfa; /* violet-300 */
+  }
+  .timeline-step:not(:first-child) p {
+    color: #a78bfa;
+  }
+  .timeline-line {
+    flex: 1;
+    height: 4px;
+    background: linear-gradient(to right, #6d28d9, #a78bfa);
+    border-radius: 9999px;
+    margin: 0 16px;
+  }
+  
+  /* Center Text */
+  .center-text {
+    max-width: 512px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .center-text h2 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #6d28d9;
+    margin-bottom: 16px;
+  }
+  .center-text p {
+    font-size: 20px;
+    color: #4b5563;
+    margin-bottom: 24px;
+  }
+  
+  /* Spins Counter */
+  .spin-counter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #FF7F6F; /* coral-pink */
+    padding: 16px 32px;
+    border-radius: 9999px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: box-shadow 0.2s;
+    margin-bottom: 32px;
+  }
+  .spin-counter:hover {
+    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+  }
+  .spin-counter i {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Wheel Container */
+
+  
+  /* Spinner image - fills entire container */
+  .spinner {
+    width: 100%;
+  
+    height: 125%;
+    display: block;
+    object-fit: cover;  /* or 'contain' if your PNG is exactly circular without blank space */
+    border-radius: 50%;
+    transition: transform 4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform-origin: center;
+    animation: rotate 2s linear infinite;
+  }
+
+  .spinner-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 50%;
+    transition: transform 4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  
+  /* Spin Button */
+  .spin-button {
+    display: block;
+    margin: 0 auto;
+    background-color: #6d28d9; /* violet-600 */
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 16px 48px;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  .spin-button:hover {
+    background-color: #5b21b6;
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+  }
+  .spinner-black {
+    background-color: #000000; /* Color of the black circle */
+    margin-top: 20px; /* Add some space between the circles */
+    width: 150px; /* Increase size as needed */
+    height: 150px;
+    border-radius: 50%;
+    animation: rotate 2s linear infinite; /* Add some space between the circles */
+}
+.spinner.black::before,
+.spinner.black::after,
+.spinner.black .segment {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: transparent; /* Default color */
+    clip-path: polygon(100% 0, 100% 100%, 0 100%); /* Create a triangular segment */
+}
+
+/* Define the segments */
+.spinner.black .segment1 {
+    background-color: #FF5733; /* Red */
+    transform: rotate(0deg);
+}
+
+.spinner.black .segment2 {
+    background-color: #33FF57; /* Green */
+    transform: rotate(60deg);
+}
+
+.spinner.black .segment3 {
+    background-color: #3357FF; /* Blue */
+    transform: rotate(120deg);
+}
+
+.spinner.black .segment4 {
+    background-color: #F1C40F; /* Yellow */
+    transform: rotate(180deg);
+}
+
+.spinner.black .segment5 {
+    background-color: #9B59B6; /* Purple */
+    transform: rotate(240deg);
+}
+.spinner.black .segment6 {
+    background-color: #E67E22; /* Orange */
+    transform: rotate(300deg);
+}
+
+.container {
+  text-align: center;
+}
+
+.wheel-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.wheel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: 
+    conic-gradient(
+      /* Segment 1: Deep Purple (#6f53ff) */
+      #6f53ff 0% 16.66%,
+      /* Segment 2: Light Purple (#9e8ef7) */
+      #9e8ef7 16.66% 33.33%,
+      /* Segment 3: Deep Purple (#6f53ff) */
+      #6f53ff 33.33% 50%,
+      /* Segment 4: Light Purple (#9e8ef7) */
+      #9e8ef7 50% 66.66%,
+      /* Segment 5: Deep Purple (#6f53ff) */
+      #6f53ff 66.66% 83.33%,
+      /* Segment 6: Light Purple (#9e8ef7) */
+      #9e8ef7 83.33% 100%
+    ),
+    conic-gradient(
+      from 0deg at 50% 50%,
+      transparent 0% 16.5%,
+      black 16.5% 16.66%,
+      transparent 16.66% 33.32%,
+      black 33.32% 33.33%,
+      transparent 33.33% 49.98%,
+      black 49.98% 50%,
+      transparent 50% 66.64%,
+      black 66.64% 66.65%,
+      transparent 66.65% 83.31%,
+      black 83.31% 83.32%,
+      transparent 83.32% 100%
+    );
+  border: 5px solid #fff; /* Outer border for the wheel */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.6); /* Glow effect */
+  transform: rotate(0deg);
+  transition: transform 5s ease-out;
+}
+
+.segment-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 18px; /* Larger font size */
+  font-weight: bold;
+  font-family: 'Bungee Shade', cursive; /* Unique font */
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), -2px -2px 4px rgba(255, 255, 255, 0.5); /* Gradient-like shadow */
+  transform: translate(-50%, -50%) rotate(calc(var(--angle) * 1deg)) translate(100px) rotate(calc(-1 * var(--angle) * 1deg));
+}
+
+.arrow {
+  position: absolute;
+  top: -60px; /* Adjusted to bring the arrow closer to the wheel */
+  left: 50%;
+  width: 40px; /* Slightly wider for better visibility */
+  height: 80px; /* Longer arrow */
+  transform: translateX(-50%);
+  pointer-events: none; /* Prevent interaction with the arrow */
+}
+
+.arrow polygon {
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3)); /* Add shadow for depth */
+}
+
+#spinButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255, 111, 97, 0.6); /* Button glow */
+}
+
+#spinButton:hover {
+  background-color: #e8564d;
+  box-shadow: 0 0 15px rgba(255, 111, 97, 0.8); /* Enhanced glow on hover */
+}
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark background with opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  margin: 0 0 10px;
+  color: #333;
+  font-family: 'Poppins', Arial, sans-serif; /* Use Poppins font */
+}
+
+.modal-content p {
+  margin: 10px 0;
+  color: #555;
+  font-family: 'Poppins', Arial, sans-serif; /* Use Poppins font */
+}
+
+.modal-content button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Purple gradient background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(106, 17, 203, 0.6); /* Purple glow */
+  transition: background-color 0.3s;
+  font-family: 'Poppins', Arial, sans-serif; /* Use Poppins font */
+}
+
+.modal-content button:hover {
+  background: linear-gradient(135deg, #5a0fbd, #1e66f5); /* Darker purple gradient on hover */
+  box-shadow: 0 0 15px rgba(106, 17, 203, 0.8);
+}
+
+.modal-content button#claimButton {
+  margin-right: 10px;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+  
+  /* Keyframe Animations */
+  @keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+  }
+  @keyframes float-reverse {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(20px) rotate(-5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+  }
+  @keyframes glow {
+    0% { filter: drop-shadow(0 0 2px rgba(255,255,255,0.3)); }
+    50% { filter: drop-shadow(0 0 10px rgba(255,255,255,0.5)); }
+    100% { filter: drop-shadow(0 0 2px rgba(255,255,255,0.3)); }
+  }
+  

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasty Bites - Claim Your Reward</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <!-- Restaurant Name Header -->
+    <header class="restaurant-header">
+        <h1 class="restaurant-name">Tasty Bites Restro</h1>
+        <p class="restruant-name-p">Enjoy the Good taste and Vibe 😋</p>
+    </header>
+
+    <div class="container">
+        <div class="header">
+            <button class="daily-spin">Daily Spin : 3</button>
+            <div class="steps">
+                <div class="step">1</div>
+                <div class="step-line"></div>
+                <div class="step active">2</div>
+                <div class="step-line"></div>
+                <div class="step">3</div>
+            </div>
+            <div class="step-labels">
+                <span>Spin the Wheel</span>
+                <span>Fill the Form</span>
+                <span>Avail the Prize</span>
+            </div>
+        </div>
+        <div class="content">
+            <h1>Claim Your Reward</h1>
+            <p>Fill out the form to receive your exciting coupon! 😍</p>
+            <div class="form-card">
+                <div class="form-step" id="step1">
+                    <h2>Step 1: Your Name</h2>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <button id="nextStep11" class="submit-button">Next</button>
+                </div>
+                <div class="form-step" id="step2" style="display: none;">
+                    <h2>Step 2: Your Phone Number</h2>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}">
+                    </div>
+                    <button id="nextStep2" class="submit-button">Next</button>
+                </div>
+                <div class="form-step" id="step3" style="display: none;">
+                    <h2>Step 3: Your Email</h2>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <button type="submit" id="submitForm" class="submit-button">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h2>Success!</h2>
+            <p id="confirmationText" class="prize-message"></p>
+            <button id="okButton" class="modal-button">OK</button>
+        </div>
+    </div>
+
+    <script src="spinthewheel.js"></script>
+</body>
+</html>
