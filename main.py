@@ -19,6 +19,16 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 async def read_root():
     with open("static/spinthewheel.html", "r" ,encoding="utf-8") as f:
         return f.read()
+    
+@app.get("/peakskitchen", response_class=HTMLResponse)
+async def read_root():
+    with open("static/spinthewheel.html", "r" ,encoding="utf-8") as f:
+        return f.read()
+    
+@app.get("/paddingtoncoffeehouse", response_class=HTMLResponse)
+async def read_root():
+    with open("static/spinthewheel.html", "r" ,encoding="utf-8") as f:
+        return f.read()
 
 @app.get("/form", response_class=HTMLResponse)
 async def read_root():
